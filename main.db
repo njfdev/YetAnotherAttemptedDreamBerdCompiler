@@ -1,0 +1,5 @@
+print("Normal")!
+print "Whitespaces replace parentheses" !
+print "Only Leading Whitespace"!
+print("Only leading parenthesis"!
+print "Mix parenthesis and whitespace")!

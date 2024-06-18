@@ -1,6 +1,7 @@
 {
   "highlight.regexFlags": "gi",
   "highlight.regexes": {
+    "filterFileRegex": ".*\\.db$",
     "(?= *[functio])( )*(f?u?n?c?t?i?o?n?)+( *)([^()\n ]+)( *\\()(.*?)(\\) +=>)": {
       "decorations": [
         {}, //indentation
