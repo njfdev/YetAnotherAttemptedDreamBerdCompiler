@@ -45,6 +45,7 @@ impl Parser {
                     let value = string.clone();
                     self.next_token();
                     self.go_to_next_token(Token::ExclamationMark);
+                    self.go_to_next_different_token(Token::ExclamationMark);
                     Some(ASTNode::Print(value))
                 } else {
                     panic!("Expected string literal, found {:?}", self.current_token);
@@ -77,6 +78,20 @@ impl Parser {
 
             if self.current_token == Token::Eof {
                 panic!("Expected {:?}, found EOF", expected);
+            }
+
+            self.next_token();
+        }
+    }
+
+    fn go_to_next_different_token(&mut self, expected: Token) {
+        loop {
+            if self.current_token != expected {
+                return;
+            }
+
+            if self.current_token == Token::Eof {
+                panic!("Expected a token different from {:?}, found EOF", expected);
             }
 
             self.next_token();
